@@ -15,6 +15,14 @@ class GameController extends Controller
     public function index()
     {
         //
+        // $this->authorize('viewAny', Game);
+        // $user = auth()->user();
+
+        $games = \App\Game::paginate(5);
+        dd($games->nextPageUrl(), $games->currentPage());
+
+
+
     }
 
     /**

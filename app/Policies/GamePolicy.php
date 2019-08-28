@@ -80,6 +80,9 @@ class GamePolicy
     public function delete(User $user, Game $game)
     {
         //
+        if ($user->can('delete game')){
+            return true;
+        }
     }
 
     /**

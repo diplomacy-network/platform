@@ -20,9 +20,9 @@ class CreateGamesTable extends Migration
             $table->dateTime('start_datetime');
             $table->unsignedInteger('eog'); //! This may be extended to an extra table for multiple eog conditions
             $table->unsignedBigInteger('variant_id');
-            $table->string('status');
+            $table->enum('status',['pregame', 'adjudicating', 'orders']);
 
-            $table->foreign('variant_id')->references('id')->on('variants');
+            // $table->foreign('variant_id')->references('id')->on('variants');
 
             $table->timestamps();
         });

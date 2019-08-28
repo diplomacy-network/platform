@@ -31,6 +31,7 @@ class RulePermissionSeeder extends Seeder
         Permission::create(['name' => 'read user']);
         Permission::create(['name' => 'update own user']);
         Permission::create(['name' => 'update user']);
+        Permission::create(['name' => 'delete own user']);
         Permission::create(['name' => 'delete user']);
 
 
@@ -44,7 +45,7 @@ class RulePermissionSeeder extends Seeder
         Role::create(['name'=> 'user'])->givePermissionTo([
             'read variant',
             'create game', 'read game',
-            'read user', 'update own user'
+            'read user', 'update own user', 'delete own user'
         ]);
 
 
