@@ -11,7 +11,7 @@ class Game extends Model
         $this->hasMany('App\NoAdjudation');
     }
 
-    public function scopeJoinable(){
-        $this->where('status', 'pregame');
+    public function scopeJoinable($query){
+        $query->where('status', 'pregame');
     }
 }

@@ -18,8 +18,9 @@ class GameController extends Controller
         // $this->authorize('viewAny', Game);
         // $user = auth()->user();
 
-        $games = Game::joinable()->paginate(5);
-        dd($games);
+        $games = Game::joinable()->get();
+        // dd($games);
+        return view('games.index');
 
 
 

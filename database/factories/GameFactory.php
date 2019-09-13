@@ -6,6 +6,7 @@ use App\Game;
 use Faker\Generator as Faker;
 
 $factory->define(Game::class, function (Faker $faker) {
+    $status = array('pregame', 'adjudicating', 'orders', 'finished');
     return [
         //
         'start_mode' => 'sufficient_players',
@@ -13,6 +14,6 @@ $factory->define(Game::class, function (Faker $faker) {
         'title' => $faker->streetName(),
         'eog' => $faker->randomDigitNotNull(),
         'variant_id' => $faker->randomDigitNotNull(),
-        'status' => 'pregame',
+        'status' => $status[$faker->numberBetween(0,2)]
     ];
 });
