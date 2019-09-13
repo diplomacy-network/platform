@@ -16,6 +16,8 @@ class CreateGamesTable extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->dateTime('next_adjudication')->nullable();
+            $table->string('title');
+            $table->text('description')->nullable();
             $table->enum('start_mode', ['after_pregame', 'sufficient_players']);
             $table->dateTime('start_datetime');
             $table->unsignedInteger('eog'); //! This may be extended to an extra table for multiple eog conditions

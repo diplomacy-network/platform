@@ -16,6 +16,9 @@ class CreateCountryTemplatesTable extends Migration
         Schema::create('country_templates', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('variant_id');
+            $table->string('name');
+            $table->string('color_province');
+            $table->string('color_unit');
             $table->timestamps();
 
             $table->foreign('variant_id')->references('id')->on('variants');

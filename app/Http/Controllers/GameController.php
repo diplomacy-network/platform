@@ -18,8 +18,9 @@ class GameController extends Controller
         // $this->authorize('viewAny', Game);
         // $user = auth()->user();
 
-        $games = \App\Game::paginate(5);
-        dd($games->nextPageUrl(), $games->currentPage());
+        $games = Game::joinable()->paginate(5);
+        dd($games);
+
 
 
 
