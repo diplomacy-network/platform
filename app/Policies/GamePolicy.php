@@ -38,7 +38,7 @@ class GamePolicy
      */
     public function view(User $user, Game $game)
     {
-        //
+        
     }
 
     /**
@@ -55,6 +55,31 @@ class GamePolicy
         }
     }
 
+
+    /**
+     * Determine whether the user can update the game.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Game  $game
+     * @return mixed
+     */
+    public function join(User $user, Game $game)
+    {
+        //
+        // if 
+    }
+    /**
+     * Determine whether the user can update the game.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Game  $game
+     * @return mixed
+     */
+    public function leave(User $user, Game $game)
+    {
+        //
+        
+    }
     /**
      * Determine whether the user can update the game.
      *

@@ -3,6 +3,7 @@
         <tr>
             <th>Title</th>
             <th>Status</th>
+            <th>Link</th>
         </tr>
     </thead>
     <tbody>
@@ -10,6 +11,7 @@
         <tr>
             <td>{{ $game->title }}</td>
             <td>{{ $game->status }}</td>
+            <td>@include('games.components.join', $game)</td>
         </tr>
         @endforeach
     </tbody>

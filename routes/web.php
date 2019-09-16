@@ -19,6 +19,12 @@ Auth::routes();
 
 Route::resource('games', 'GameController');
 
+Route::resource('games/{game}/member', 'MemberController',
+                array('only' => array('store', 'update', 'destroy')));
+
+Route::get('games/{game}/join', 'GameController@join')->name('games.join');
+Route::get('games/{game}/leave', 'GameController@leave')->name('games.leave');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

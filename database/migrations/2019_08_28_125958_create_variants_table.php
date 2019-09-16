@@ -15,10 +15,11 @@ class CreateVariantsTable extends Migration
     {
         Schema::create('variants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->unsignedBigInteger('submitter_id');
+            $table->string('name')->unique();
+            $table->unsignedBigInteger('submitter_id')->nullable();
+            // $table->unsignedInteger('number_of_players');
             $table->unsignedInteger('default_number_eog_supply_centers');
-            $table->year('startYear');
+            $table->year('start_year');
             $table->timestamps();
         });
     }

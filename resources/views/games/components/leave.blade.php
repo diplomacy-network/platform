@@ -1,0 +1,1 @@
+<a href="{{ route('games.leave', $game) }}">Leave</a>

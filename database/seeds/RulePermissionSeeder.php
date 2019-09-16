@@ -36,8 +36,8 @@ class RulePermissionSeeder extends Seeder
 
 
         Role::create(['name'=> 'moderator'])->givePermissionTo([
-            'update game', 'delete game',
-            'create user', 'update user', 'delete user'
+            'create game', 'read game', 'update game', 'delete game',
+            'create user', 'read user', 'update own user', 'delete own user', 'update user', 'delete user'
         ]);
         Role::create(['name'=> 'developer'])->givePermissionTo([
             'create variant', 'update own variant'

@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RulePermissionSeeder::class,
             UserSeeder::class,
+            VariantSeeder::class,
             GameSeeder::class,
         ]);
     }

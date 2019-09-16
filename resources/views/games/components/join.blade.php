@@ -1,0 +1,1 @@
+<a href="{{ route('games.join', $game) }}">Join</a>

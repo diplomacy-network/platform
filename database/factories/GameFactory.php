@@ -13,7 +13,7 @@ $factory->define(Game::class, function (Faker $faker) {
         'start_datetime' => $faker->dateTime(),
         'title' => $faker->streetName(),
         'eog' => $faker->randomDigitNotNull(),
-        'variant_id' => $faker->randomDigitNotNull(),
+        'variant_id' => 1,
         'status' => $status[$faker->numberBetween(0,2)]
     ];
 });

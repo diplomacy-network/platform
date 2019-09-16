@@ -3,59 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Member;
+use App\Game;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Member  $member
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Member $member)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Member  $member
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Member $member)
+    public function store(Request $request, Game $game)
     {
         //
     }
@@ -64,10 +24,11 @@ class MemberController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Game  $game
      * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member)
+    public function update(Request $request, Game $game, Member $member)
     {
         //
     }
@@ -75,10 +36,11 @@ class MemberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \App\Game  $game
      * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member)
+    public function destroy(Game $game, Member $member)
     {
         //
     }

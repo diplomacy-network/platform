@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Game;
+use App\Http\Requests\GameRequest;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class GameController extends Controller
 {
@@ -15,11 +17,7 @@ class GameController extends Controller
     public function index()
     {
         //
-        // $this->authorize('viewAny', Game);
-        // $user = auth()->user();
-
-        $games = Game::joinable()->get();
-        // dd($games);
+        $this->authorize('viewAny', Game::class);
         return view('games.index');
 
 
@@ -35,18 +33,69 @@ class GameController extends Controller
     public function create()
     {
         //
-    }
+        $this->authorize('create', Game::class);
+        $variants = \App\Variant::all();
 
+        // https://adamwathan.me/2016/07/14/customizing-keys-when-mapping-collections/
+        $variantLookup = $variants->reduce(function ($emailLookup, $variant) {
+            $variantLookup[$variant['id']] = $variant['name'];
+            return $variantLookup;
+        }, []);
+
+        return view('games.update', [
+            // 'game' => new Game(),
+            'variants' => $variantLookup
+            ]);
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\GameRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
+        $this->authorize('create', Game::class);
+
+        $variant = \App\Variant::find($request->variant);
+        $start = Carbon::now()->addDays($request->join_phase_length);
+
+        $game = Game::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'start_datetime' => $start,
+            'start_mode' => 'sufficient_players',
+            'status' => 'pregame',
+            'eog' => $variant->default_number_eog_supply_centers,
+        ]);
+        $game->variant()->associate($variant);
+        $game->save();
     }
+
+    /**
+     * Join the game.
+     * 
+     * @param  \App\Game  $game
+     * @return \Illuminate\Http\Response
+     */ 
+    public function join(Game $game)
+    {
+        //
+        
+    }    
+
+    /**
+     * Leave the game.
+     * 
+     * @param  \App\Game  $game
+     * @return \Illuminate\Http\Response
+     */ 
+    public function leave(Game $game)
+    {
+        //
+    }    
 
     /**
      * Display the specified resource.

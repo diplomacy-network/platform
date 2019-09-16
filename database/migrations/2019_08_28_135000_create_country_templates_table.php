@@ -17,8 +17,8 @@ class CreateCountryTemplatesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('variant_id');
             $table->string('name');
-            $table->string('color_province');
-            $table->string('color_unit');
+            // $table->string('color_province');
+            // $table->string('color_unit');
             $table->timestamps();
 
             $table->foreign('variant_id')->references('id')->on('variants');
