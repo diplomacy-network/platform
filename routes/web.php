@@ -20,10 +20,7 @@ Auth::routes();
 Route::resource('games', 'GameController');
 
 Route::resource('games/{game}/member', 'MemberController',
-                array('only' => array('store', 'update', 'destroy')));
-
-Route::get('games/{game}/join', 'GameController@join')->name('games.join');
-Route::get('games/{game}/leave', 'GameController@leave')->name('games.leave');
+                array('only' => array('store', 'destroy')));
 
 Auth::routes();
 

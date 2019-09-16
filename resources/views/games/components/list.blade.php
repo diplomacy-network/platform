@@ -11,7 +11,7 @@
         <tr>
             <td>{{ $game->title }}</td>
             <td>{{ $game->status }}</td>
-            <td>@include('games.components.join', $game)</td>
+            <td>@include('games.components.gameAction', $game)</td>
         </tr>
         @endforeach
     </tbody>

@@ -75,29 +75,6 @@ class GameController extends Controller
     }
 
     /**
-     * Join the game.
-     * 
-     * @param  \App\Game  $game
-     * @return \Illuminate\Http\Response
-     */ 
-    public function join(Game $game)
-    {
-        //
-        
-    }    
-
-    /**
-     * Leave the game.
-     * 
-     * @param  \App\Game  $game
-     * @return \Illuminate\Http\Response
-     */ 
-    public function leave(Game $game)
-    {
-        //
-    }    
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Game  $game

@@ -15,22 +15,11 @@ class MemberController extends Controller
      * @param  \App\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Game $game)
+    public function store(Request $request, Game $game, User $user)
     {
         //
-    }
+        $game->members()->attach($user)->save();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Game  $game
-     * @param  \App\Member  $member
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Game $game, Member $member)
-    {
-        //
     }
 
     /**

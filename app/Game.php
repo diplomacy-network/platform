@@ -9,13 +9,13 @@ class Game extends Model
     //
     protected $fillable = ['title', 'description', 'start_mode', 'start_datetime', 'status', 'eog'];
 
-    // public function noAdjudications(){
-    //     $this->hasMany('App\NoAdjudation');
-    // }
+    public function noAdjudications(){
+        $this->hasMany('App\NoAdjudation');
+    }
 
-    // public function members(){
-    //     $this->hasMany('App\User');
-    // }
+    public function members(){
+        $this->hasMany('App\User');
+    }
 
     public function variant(){
         return $this->belongsTo('App\Variant', 'variant_id');
@@ -23,6 +23,13 @@ class Game extends Model
 
     public function scopeJoinable($query){
         $query->where('status', 'pregame');
+    }
+
+    public function isMember(){
+        if ($this->members()->contains(auth()->user)){
+            return true;
+        }
+        return false;
     }
 
     
